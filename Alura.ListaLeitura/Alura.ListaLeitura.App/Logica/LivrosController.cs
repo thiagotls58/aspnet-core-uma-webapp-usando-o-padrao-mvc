@@ -2,24 +2,20 @@
 using Alura.ListaLeitura.App.Negocio;
 using Alura.ListaLeitura.App.Repositorio;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Alura.ListaLeitura.App.Logica
 {
-    public class LivrosLogica
+    public class LivrosController
     {
-        public static Task ExibeDetalhes(HttpContext context)
+        public string Detalhes(int id)
         {
-            int id = Convert.ToInt32(context.GetRouteValue("id"));
             var repo = new LivroRepositorioCSV();
-
             var livro = repo.Todos.First(l => l.Id == id);
 
-            return context.Response.WriteAsync(livro.Detalhes());
+            return livro.Detalhes();
         }
 
         private static string CarregaLista(IEnumerable<Livro> livros)
@@ -34,21 +30,21 @@ namespace Alura.ListaLeitura.App.Logica
             return html;
         }
 
-        public static Task LivrosParaLer(HttpContext contexto)
+        public static Task ParaLer(HttpContext contexto)
         {
             var _repo = new LivroRepositorioCSV();
             var html = CarregaLista(_repo.ParaLer.Livros);
             return contexto.Response.WriteAsync(html);
         }
 
-        public static Task LivrosLendo(HttpContext contexto)
+        public static Task Lendo(HttpContext contexto)
         {
             var _repo = new LivroRepositorioCSV();
 
             return contexto.Response.WriteAsync(_repo.Lendo.ToString());
         }
 
-        public static Task LivrosLidos(HttpContext contexto)
+        public static Task Lidos(HttpContext contexto)
         {
             var _repo = new LivroRepositorioCSV();
 

@@ -23,3 +23,4 @@ E:\Cursos Alura\aspnet-core-uma-webapp-usando-o-padrao-mvc\Alura.ListaLeitura\Al
 E:\Cursos Alura\aspnet-core-uma-webapp-usando-o-padrao-mvc\Alura.ListaLeitura\Alura.ListaLeitura.App\obj\Debug\netcoreapp2.0\Alura.ListaLeitura.App.genruntimeconfig.cache
 E:\Cursos Alura\aspnet-core-uma-webapp-usando-o-padrao-mvc\Alura.ListaLeitura\Alura.ListaLeitura.App\bin\Debug\netcoreapp2.0\HTML\formulario.html
 E:\Cursos Alura\aspnet-core-uma-webapp-usando-o-padrao-mvc\Alura.ListaLeitura\Alura.ListaLeitura.App\bin\Debug\netcoreapp2.0\HTML\para-ler.html
+E:\Cursos Alura\aspnet-core-uma-webapp-usando-o-padrao-mvc\Alura.ListaLeitura\Alura.ListaLeitura.App\obj\Debug\netcoreapp2.0\Alura.ListaLeitura.App.csprojAssemblyReference.cache

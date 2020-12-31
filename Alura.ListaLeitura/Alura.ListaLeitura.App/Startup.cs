@@ -12,25 +12,13 @@ namespace Alura.ListaLeitura.App
         {
             // serviço de rotas do asp.net core
             services.AddRouting();
+            services.AddMvc();
         }
 
         // IApplicationBuilder é resposável pela configuração do Pipeline da requisição
         public void Configure(IApplicationBuilder app) 
         {
-            // definindo as rotas
-            var routeBuilder = new RouteBuilder(app);
-            routeBuilder.MapRoute("livros/paraler", LivrosLogica.LivrosParaLer);
-            routeBuilder.MapRoute("livros/lendo", LivrosLogica.LivrosLendo);
-            routeBuilder.MapRoute("livros/lidos", LivrosLogica.LivrosLidos);
-            routeBuilder.MapRoute("Livros/Detalhes/{id:int}", LivrosLogica.ExibeDetalhes);
-            routeBuilder.MapRoute("Cadastro/NovoLivro/{nome}/{autor}", CadastroLogica.NovoLivroParaLer);
-            routeBuilder.MapRoute("Cadastro/NovoLivro", CadastroLogica.ExibeFormulario);
-            routeBuilder.MapRoute("Cadastro/Incluir", CadastroLogica.ProcessaFormulario);
-
-            var rotas = routeBuilder.Build();
-
-            app.UseRouter(rotas);
-
+            app.UseMvcWithDefaultRoute();
         }
 
     }
