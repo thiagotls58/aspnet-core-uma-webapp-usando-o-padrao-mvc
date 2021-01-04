@@ -2,13 +2,14 @@
 using Alura.ListaLeitura.App.Negocio;
 using Alura.ListaLeitura.App.Repositorio;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Alura.ListaLeitura.App.Logica
 {
-    public class LivrosController
+    public class LivrosController : Controller
     {
         public string Detalhes(int id)
         {
@@ -30,25 +31,25 @@ namespace Alura.ListaLeitura.App.Logica
             return html;
         }
 
-        public static Task ParaLer(HttpContext contexto)
+        public IActionResult ParaLer()
         {
             var _repo = new LivroRepositorioCSV();
-            var html = CarregaLista(_repo.ParaLer.Livros);
-            return contexto.Response.WriteAsync(html);
+            ViewBag.Livros = _repo.ParaLer.Livros;
+            return View("lista");
         }
 
-        public static Task Lendo(HttpContext contexto)
+        public IActionResult Lendo()
         {
             var _repo = new LivroRepositorioCSV();
-
-            return contexto.Response.WriteAsync(_repo.Lendo.ToString());
+            ViewBag.Livros = _repo.Lendo.Livros;
+            return View("lista");
         }
 
-        public static Task Lidos(HttpContext contexto)
+        public IActionResult Lidos()
         {
             var _repo = new LivroRepositorioCSV();
-
-            return contexto.Response.WriteAsync(_repo.Lidos.ToString());
+            ViewBag.Livros = _repo.Lidos.Livros;
+            return View("lista");
         }
     }
 }
